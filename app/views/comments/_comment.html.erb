@@ -1,0 +1,31 @@
+ <div class="container">
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
+    <div class="row">
+    <!-- Contenedor Principal -->
+    <div class="comments-container">
+
+        <h1>Comentarios</h1>
+        <% @micropost.comments.each do |comment| %> 
+        <ul id="comments-list" class="comments-list">
+            <li>
+                <div class="comment-main-level">
+                    <!-- Avatar -->
+                    <div class="comment-avatar"></div>
+                    <!-- Contenedor del Comentario -->
+                    <div class="comment-box">
+                        <div class="comment-head">
+                            <h6 class="comment-name by-author"><%= @micropost.user.name %></h6>
+                            <span><p><%= l(comment.created_at,format: '%B, %d %Y %H:%M:%S') %></p></span>
+                            <i class="fa fa-reply"><%= link_to "Reply", micropost_new_comment_path(@micropost, comment, parent_id: comment.id, js: true), remote: true %></i>
+                        </div>
+                        <div class="comment-content">
+                             <%= comment.body %>
+                        </div>
+                    </div>
+                </div>
+                <% end %>
+            </li>
+        </ul>
+       </div>
+   </div>
+</div>

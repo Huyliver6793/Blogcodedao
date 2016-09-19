@@ -1,0 +1,30 @@
+<%= form_for(@micropost) do |f| %>
+<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/jquery.bootstrapvalidator/0.5.2/css/bootstrapValidator.min.css"/>
+<script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery.bootstrapvalidator/0.5.2/js/bootstrapValidator.min.js"></script>
+<div class="container">
+    <div class="row">
+        
+                    <div class="row">
+                        <div class="col-md-8">
+                        <div class="form-group">
+                        <%= f.text_area :title, class: "form-control", placeholder: "Title" %>
+                           
+                        </div>
+                    </div>
+                        
+                    </div>
+                    <div class="row">
+                        <div class="col-md-8">
+                        <div class="form-group">
+                        <%= f.text_area :content, class: "form-control textarea",placeholder: "Post Entry" %>
+                        </div>
+                    </div>
+                    </div>
+                    <div class="row">
+                    <div class="col-md-8">
+                  <%= f.submit "Save change ",class: "btn main-btn"  %>
+                  </div>
+                  </div>      
+    </div>
+</div>
+ <% end %>

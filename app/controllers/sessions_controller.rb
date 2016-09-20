@@ -7,7 +7,7 @@ class SessionsController < ApplicationController
   	if user && user.authenticate(params[:session][:password])
       params[:session][:remember_me] == '1' ? remember(user) : forget(user)
   		log_in user
-  		redirect_to root_url
+  		redirect_back_or user
   	else
   		flash[:danger] = "Lỗi email hoặc mật khẩu không đúng"
   	render 'new'

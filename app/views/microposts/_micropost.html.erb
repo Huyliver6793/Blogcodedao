@@ -1,3 +1,4 @@
+
 <div class="container">
     <div class="row">
         <div class="col-md-9">
@@ -15,7 +16,7 @@
                         <div class="col-md-12 post-header-line">
                             <span class="glyphicon glyphicon-user"></span>by <%= link_to post.user.name,user_path(post.user) %> | <span class="glyphicon glyphicon-calendar">
                             </span><%= l(post.created_at,format: '%B, %d %Y %H:%M:%S')%> | <span class="glyphicon glyphicon-comment"></span><a href="#">
-                                3 Comments</a> | <i class="icon-share"></i><a href="#">39 Shares</a> | <span class="glyphicon glyphicon-tags">
+                                <%= post.comments.count %> comments</a> | <i class="icon-share"></i><a href="#">39 Shares</a> | <span class="glyphicon glyphicon-tags">
                                 </span>Tags : <a href="#"><span class="label label-info">Snipp</span></a> <a href="#">
                                     <span class="label label-info">Bootstrap</span></a> <a href="#"><span class="label label-info">
                                         UI</span></a> <a href="#"><span class="label label-info">growth</span></a>
@@ -23,9 +24,9 @@
                     </div>
                     <div class="row post-content">
                         <div class="col-md-3">
-                            <a href="#">
-                                <img src="http://4.bp.blogspot.com/-_lqoNpVXeU4/UkxQ7N-QW8I/AAAAAAAACTw/pni-TZyp17o/s1600/cool+share+button+effects+styles.png" alt="" class="img-responsive">
-                            </a>
+                            <%= link_to user_path(post.user) do %>
+                            <%= image_tag post.user.picture_url, :size => "200x100" %>
+                            <% end %>
                         </div>
                         <div class="col-md-9">
                             <p>
@@ -45,3 +46,4 @@
         </div>
     </div>
 </div>
+ <%= will_paginate @microposts %>

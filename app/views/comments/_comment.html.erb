@@ -10,7 +10,9 @@
             <li>
                 <div class="comment-main-level">
                     <!-- Avatar -->
-                    <div class="comment-avatar"></div>
+                    <div class="comment-avatar">
+                        <%= image_tag @micropost.user.picture_url, :size => "50x50" %>
+                    </div>
                     <!-- Contenedor del Comentario -->
                     <div class="comment-box">
                         <div class="comment-head">

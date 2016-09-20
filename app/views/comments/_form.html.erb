@@ -1,3 +1,4 @@
+<% if logged_in? %>
 <%= form_for [@micropost, @micropost.comments.build] do |f| %>
             <%= f.hidden_field :parent_id %>
                 <p>
@@ -7,5 +8,7 @@
                 <p>
                     <%= f.submit "comment" %>
                 </p>
-        
+<% end %>
+<% else %>
+<p> Bạn hãy <%= link_to "Đăng nhập", login_path %> để bình luận </p>
 <% end %>

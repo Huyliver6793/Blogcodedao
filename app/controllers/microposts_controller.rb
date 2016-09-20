@@ -21,6 +21,8 @@ class MicropostsController < ApplicationController
 
   def show
     @micropost = Micropost.find(params[:id])
+    @microposts = Micropost.paginate(page: params[:page],per_page: 5)
+    
   end
 
   def edit

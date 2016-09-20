@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160919135352) do
+ActiveRecord::Schema.define(version: 20160920034541) do
 
   create_table "comments", force: :cascade do |t|
     t.string   "commenter",    limit: 255
@@ -20,9 +20,11 @@ ActiveRecord::Schema.define(version: 20160919135352) do
     t.datetime "created_at",                 null: false
     t.datetime "updated_at",                 null: false
     t.integer  "parent_id",    limit: 4
+    t.integer  "user_id",      limit: 4
   end
 
   add_index "comments", ["micropost_id"], name: "index_comments_on_micropost_id", using: :btree
+  add_index "comments", ["user_id"], name: "index_comments_on_user_id", using: :btree
 
   create_table "microposts", force: :cascade do |t|
     t.text     "content",    limit: 65535
@@ -57,5 +59,6 @@ ActiveRecord::Schema.define(version: 20160919135352) do
   end
 
   add_foreign_key "comments", "microposts"
+  add_foreign_key "comments", "users"
   add_foreign_key "microposts", "users"
 end

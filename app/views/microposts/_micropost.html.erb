@@ -15,18 +15,17 @@
                     <div class="row">
                         <div class="col-md-12 post-header-line">
                             <span class="glyphicon glyphicon-user"></span>by <%= link_to post.user.name,user_path(post.user) %> | <span class="glyphicon glyphicon-calendar">
-                            </span><%= l(post.created_at,format: '%B, %d %Y %H:%M:%S')%> | <span class="glyphicon glyphicon-comment"></span><a href="#">
-                                <%= post.comments.count %> comments</a> | <i class="icon-share"></i><a href="#">39 Shares</a> | <span class="glyphicon glyphicon-tags">
-                                </span>Tags : <a href="#"><span class="label label-info">Snipp</span></a> <a href="#">
-                                    <span class="label label-info">Bootstrap</span></a> <a href="#"><span class="label label-info">
-                                        UI</span></a> <a href="#"><span class="label label-info">growth</span></a>
+                            </span><%= l(post.created_at,format: '%B, %d %Y %H:%M:%S')%> | <span class="glyphicon glyphicon-comment"></span>
+                                <%= post.comments.count %> comments
                         </div>
                     </div>
                     <div class="row post-content">
                         <div class="col-md-3">
+                        <div class="comment-avatar">
                             <%= link_to user_path(post.user) do %>
-                            <%= image_tag post.user.picture_url, :size => "200x100" %>
+                            <%= image_tag post.user.picture_url%>
                             <% end %>
+                        </div>
                         </div>
                         <div class="col-md-9">
                             <p>
